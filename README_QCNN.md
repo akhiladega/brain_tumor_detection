@@ -102,21 +102,6 @@ visualization.
 -   OpenCV
 -   Gradio
 
-------------------------------------------------------------------------
-
-## Research Publication
-
-This project is related to the following research work:
-
-Title: Brain Tumour Detection Using Quantum Convolutional Neural
-Networks (QCNN)
-
-Conference: IEEE Odisha International Conference on Information
-Technology (OCIT 2025)
-
-Publisher: IEEE
-
-DOI: https://doi.org/10.1109/OCIT66168.2025.11400476
 
 ------------------------------------------------------------------------
 
