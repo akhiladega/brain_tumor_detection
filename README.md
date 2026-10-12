@@ -1,113 +1,266 @@
-# Quantum Brain Tumor Detection
+# 🧠 Quantum Brain Tumor Detection
 
-This project implements a hybrid quantum-classical deep learning model
-for detecting brain tumors from MRI images. The architecture integrates
-a convolutional neural network with a variational quantum circuit to
-explore quantum-enhanced feature learning for medical image
-classification.
+A deep learning project for detecting brain tumors from MRI images using a hybrid quantum-classical neural network. The project combines EfficientNet-B0 for image feature extraction with a variational quantum circuit for classification.
 
-------------------------------------------------------------------------
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/Quantum%20ML-PennyLane-6C3483?style=for-the-badge" alt="Quantum Machine Learning"/>
+  <img src="https://img.shields.io/badge/Computer%20Vision-MRI-blue?style=for-the-badge" alt="Computer Vision"/>
+</p>
 
-## Overview
+---
 
-The system combines classical deep learning and quantum machine learning
-techniques. MRI images are first processed using a convolutional neural
-network backbone to extract features. These features are then embedded
-into a quantum circuit where variational quantum layers perform
-additional feature transformation before classification.
+## 📌 Table of Contents
 
-------------------------------------------------------------------------
+- [Overview](#-overview)
+- [Features](#-features)
+- [Model Architecture](#-model-architecture)
+- [Dataset](#-dataset)
+- [Sample Results](#-sample-results)
+- [Evaluation](#-evaluation)
+- [Technologies Used](#-technologies-used)
+- [Project Structure](#-project-structure)
+- [Installation and Usage](#-installation-and-usage)
+- [Future Improvements](#-future-improvements)
+- [Author](#-author)
+- [Disclaimer](#-disclaimer)
 
-## Model Architecture
+---
 
-### Classical Backbone
+## 🔍 Overview
 
--   EfficientNet-B0 used for feature extraction
--   Modified to accept grayscale MRI images
--   Feature compression layer before quantum embedding
+Brain tumor detection from MRI images is an important application of medical image analysis. This project explores the use of quantum machine learning alongside conventional deep learning to classify brain MRI images into tumor and non-tumor categories.
 
-### Quantum Layer
+The system uses a classical convolutional neural network to extract meaningful image features and a quantum circuit to perform additional feature transformations before classification.
 
--   4-qubit variational quantum circuit
--   AngleEmbedding used for encoding classical features
--   StronglyEntanglingLayers used for parameterized quantum operations
--   Implemented using PennyLane
+The goal is to explore a hybrid approach to image classification and understand how quantum computing techniques can be integrated into machine learning workflows.
 
-### Output Layer
+## ✨ Features
 
--   Fully connected classification layer
--   LogSoftmax activation for prediction
+- 🧠 Brain MRI image classification
+- 🔬 Hybrid quantum-classical model
+- 🖼️ Image feature extraction using EfficientNet-B0
+- ⚛️ Variational quantum circuit using PennyLane
+- 📊 Model evaluation using classification metrics
+- 💻 Python-based training and prediction scripts
+- 🚀 GPU support where compatible hardware and dependencies are available
 
-------------------------------------------------------------------------
+## 🏗️ Model Architecture
 
-## Dataset
+The model combines classical image processing with a quantum machine learning component.
 
-Dataset structure:
+### 1. Image Input and Preprocessing
 
-dataset/ ├── yes/ └── no/
+- Load brain MRI images from the dataset.
+- Convert images to grayscale and resize them to the model's required dimensions.
+- Normalize image data before feature extraction.
 
-The dataset contains MRI brain images categorized as tumor and non-tumor
-cases. Images are resized to 224×224, converted to grayscale, and
-normalized before training.
+### 2. Classical Feature Extraction
 
-Dataset Source: Public Brain MRI dataset available on Kaggle.
+EfficientNet-B0 extracts useful visual features from the MRI images. A feature-compression layer prepares these features for quantum encoding.
 
-------------------------------------------------------------------------
+### 3. Quantum Feature Processing
 
-## Training Configuration
+The quantum component uses PennyLane to implement a variational quantum circuit.
 
--   Optimizer: Adam
--   Loss Function: Negative Log Likelihood (NLLLoss)
--   Learning Rate Scheduler: ReduceLROnPlateau
--   Train/Test Split: 80/20
--   Batch Size: 16
--   Epochs: 50
+- Four-qubit quantum circuit
+- Angle embedding for feature encoding
+- Strongly entangling layers for parameterized quantum operations
 
-------------------------------------------------------------------------
+### 4. Classification
 
-## Evaluation
+The extracted and transformed features are passed to the output layer to generate a tumor or non-tumor prediction.
 
-Model performance is evaluated on a held-out test split of the dataset.
-Evaluation metrics include precision, recall, F1-score, and overall
-accuracy.
+### Architecture Flow
 
-Observed test accuracy is approximately 99%, depending on dataset split
-and training initialization.
+```text
+Brain MRI Image
+       |
+       v
+Image Preprocessing
+(Grayscale, Resize, Normalize)
+       |
+       v
+EfficientNet-B0
+(Feature Extraction)
+       |
+       v
+Feature Compression
+       |
+       v
+Quantum Feature Encoding
+       |
+       v
+Variational Quantum Circuit
+       |
+       v
+Classification Layer
+       |
+       v
+Tumor / No Tumor
+```
 
-------------------------------------------------------------------------
+## 📂 Dataset
 
-## Running the Project
+This project uses the publicly available Brain MRI dataset hosted on Kaggle.
 
-### Train the Model
+**Dataset:** [Karthik Brain MRI Dataset – Kaggle](https://www.kaggle.com/datasets/skarthik112/karthik-braindataset-mri)
 
+The dataset contains MRI images organized into tumor and non-tumor categories.
+
+### Dataset Classes
+
+| Class | Description |
+|---|---|
+| `yes` | MRI images with a tumor |
+| `no` | MRI images without a tumor |
+
+### Dataset Setup
+
+1. Open the Kaggle dataset link above.
+2. Download the dataset.
+3. Extract the downloaded files.
+4. Configure the dataset path according to the training script.
+5. Verify that the folder structure matches the format expected by the code.
+
+The dataset is not included in this repository. Please refer to the original Kaggle page for the dataset and its usage terms.
+
+## 🖼️ Sample Results
+
+This section can display example predictions generated by your model.
+
+### Tumor Detected
+
+Add your tumor prediction screenshot here after uploading it to the repository.
+
+```markdown
+![Tumor Detected](assets/yes_result.png)
+```
+
+### No Tumor Detected
+
+Add your non-tumor prediction screenshot here after uploading it to the repository.
+
+```markdown
+![No Tumor](assets/no_result.png)
+```
+
+> **Note:** The image paths above are examples. Upload your actual screenshots using the same filenames, or update the paths to match your files.
+
+## 📊 Evaluation
+
+The model can be evaluated using the following metrics:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion matrix
+
+Add your actual evaluation results after running the model.
+
+| Metric | Result |
+|---|---|
+| Accuracy | Add measured result |
+| Precision | Add measured result |
+| Recall | Add measured result |
+| F1-score | Add measured result |
+
+Performance depends on the dataset split, training configuration, and model initialization. No performance figures are claimed here.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Main programming language |
+| PyTorch | Deep learning framework |
+| Torchvision | Image processing and EfficientNet-B0 |
+| PennyLane | Quantum machine learning |
+| NumPy | Numerical computation |
+| OpenCV | Image processing utilities |
+| Gradio | Prediction interface, if configured in the application |
+
+## 📁 Project Structure
+
+```text
+brain_tumor_detection/
+│
+├── train_qcnn.py       # Model training
+├── predict_qcnn.py     # Prediction interface
+├── requirements.txt    # Python dependencies
+├── README.md           # Project documentation
+├── LICENSE             # License information
+│
+└── assets/
+    ├── yes_result.png  # Example tumor prediction
+    └── no_result.png  # Example non-tumor prediction
+```
+
+The `assets/` directory is optional. Create it and add your screenshots if you want them displayed in the README.
+
+## 🚀 Installation and Usage
+
+### Prerequisites
+
+- Python installed on your system
+- Git
+- pip
+- A compatible environment for PyTorch and PennyLane
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/akhiladega/brain_tumor_detection.git
+cd brain_tumor_detection
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Download and Configure the Dataset
+
+Download the [Kaggle Brain MRI dataset](https://www.kaggle.com/datasets/skarthik112/karthik-braindataset-mri) and configure the path expected by the training script.
+
+### 4. Train the Model
+
+```bash
 python train_qcnn.py
+```
 
-### Run Prediction
+### 5. Run Predictions
 
+```bash
 python predict_qcnn.py
+```
 
-The prediction interface allows uploading MRI images and returns tumor
-classification along with confidence scores and Grad-CAM based
-visualization.
+Follow the application's instructions to test an MRI image.
 
-------------------------------------------------------------------------
+## 🔮 Future Improvements
 
-## Technologies Used
+- Improve model evaluation using a separate test dataset.
+- Add visualizations for training and validation performance.
+- Include a confusion matrix and classification report.
+- Improve the prediction interface and user experience.
+- Explore explainability techniques for model predictions.
+- Evaluate generalization using additional MRI datasets.
 
--   Python
--   PyTorch
--   Torchvision
--   PennyLane
--   NumPy
--   OpenCV
--   Gradio
+## 👩‍💻 Author
 
+**Akhiladega**
 
-------------------------------------------------------------------------
+Computer Science Engineering Student
 
-## Project Context
+GitHub: [@akhiladega](https://github.com/akhiladega)
 
-This repository demonstrates an implementation of hybrid quantum neural
-networks for medical image classification and serves as an academic
-exploration of quantum machine learning techniques applied to healthcare
-data.
+Project Repository: [Brain Tumor Detection](https://github.com/akhiladega/brain_tumor_detection)
+
+---
+
+## ⚠️ Disclaimer
+
+This project is intended for educational and research purposes. Its predictions are not a substitute for professional medical evaluation, diagnosis, or treatment.
+
