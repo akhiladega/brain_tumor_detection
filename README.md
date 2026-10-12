@@ -105,7 +105,7 @@ Tumor / No Tumor
 
 This project uses the publicly available Brain MRI dataset hosted on Kaggle.
 
-**Dataset:** [Dataset](https://www.kaggle.com/datasets/skarthik112/karthik-braindataset-mri)
+**Dataset:** (https://www.kaggle.com/datasets/skarthik112/karthik-braindataset-mri)
 The dataset contains MRI images organized into tumor and non-tumor categories.
 
 ### Dataset Classes
